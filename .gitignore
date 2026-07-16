@@ -1,0 +1,13 @@
+# Entornos virtuales
+.venv-planeacion/
+venv/
+ENV/
+.env
+
+# Caché de Python
+**/__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de configuración de VS Code (opcional)
+.vscode/
