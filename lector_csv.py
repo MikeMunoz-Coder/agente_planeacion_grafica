@@ -59,7 +59,9 @@ def buscar_ultima_op_cliente(cliente):
 
     if resultado.empty:
         return resultado
-
+    
+    resultado = resultado.copy()
+    
     resultado["fecha_produccion"] = pd.to_datetime(
         resultado["fecha_produccion"]
     )
