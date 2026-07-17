@@ -3,7 +3,7 @@ from langchain.agents import create_react_agent, AgentExecutor
 from langchain import hub
 
 from my_keys import GEMINI_API_KEY
-from my_models import GEMINI_FLASH
+from my_models import GEMINI_PRIMARY
 
 from herramienta_consulta_op import HerramientaConsultaOP
 from herramienta_ultima_op_cliente import HerramientaUltimaOPCliente
@@ -18,7 +18,8 @@ class AgenteOrquestador:
 
         self.llm = ChatGoogleGenerativeAI(
             api_key=GEMINI_API_KEY,
-            model=GEMINI_FLASH
+            model=GEMINI_PRIMARY,
+            temperature=0
         )
 
 

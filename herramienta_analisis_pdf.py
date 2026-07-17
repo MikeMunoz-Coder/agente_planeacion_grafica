@@ -3,7 +3,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.output_parsers import JsonOutputParser
 
 from my_keys import GEMINI_API_KEY
-from my_models import GEMINI_FLASH
+#from my_models import GEMINI_FLASH
+from my_models import GEMINI_PRIMARY
 from lector_pdf import leer_pdf
 from modelos_op import OrdenProduccion
 
@@ -38,7 +39,8 @@ class HerramientaAnalisisPDF(BaseTool):
 
         llm = ChatGoogleGenerativeAI(
             api_key=GEMINI_API_KEY,
-            model=GEMINI_FLASH
+            model=GEMINI_PRIMARY,
+            temperature=0
         )
 
 
