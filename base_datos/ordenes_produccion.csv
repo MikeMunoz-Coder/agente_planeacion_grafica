@@ -1,0 +1,16 @@
+numero_op,cliente,nombre_trabajo,fecha_produccion,cantidad,material,numero_tintas,troquel,dimensiones,tipo_producto,observaciones
+OP-1050,JGB,Sticker promocional jarabe infantil,2025-08-12,5000,Vinilo adhesivo blanco,4,T-023,10 x 15 cm,Sticker adhesivo,Trabajo con troquel especial y laminado brillante
+OP-1062,JGB,Etiqueta producto farmaceutico,2025-09-03,8000,Papel adhesivo couché,3,T-018,8 x 12 cm,Etiqueta adhesiva,Se uso barniz de proteccion
+OP-1085,JGB,Sticker promocional vitamina C,2025-10-20,6000,Vinilo adhesivo transparente,4,T-023,10 x 15 cm,Sticker adhesivo,Trabajo similar a OP-1050 con cambio de arte
+OP-1101,JGB,Hablador de punto de venta,2025-11-05,3000,Propalcote 300 gramos,4,Sin troquel,21 x 29.7 cm,Material POP,Impresion full color con plastificado mate
+OP-1150,JGB,Etiqueta promocional medicamento adulto,2026-01-18,10000,Papel adhesivo couché,4,T-031,9 x 13 cm,Etiqueta adhesiva,Ultima produccion registrada para cliente JGB
+OP-1025,Alimentos Andinos,Sticker promocional salsa picante,2025-07-04,7000,Vinilo adhesivo blanco,4,T-011,7 x 10 cm,Sticker adhesivo,Producto para campaña en supermercados
+OP-1078,Alimentos Andinos,Collarin promocional botella,2025-09-28,12000,Propalcote 240 gramos,4,T-041,6 x 18 cm,Material POP,Troquel tipo collarin para botella
+OP-1120,Alimentos Andinos,Rompetrafico campaña navidad,2025-12-02,2500,Cartulina esmaltada 320 gramos,4,T-055,30 x 45 cm,Material POP,Incluye doblez y troquel
+OP-1042,Belleza Natural,Etiqueta crema facial,2025-07-30,9000,Papel adhesivo transparente,5,T-019,6 x 9 cm,Etiqueta adhesiva,Incluye tinta blanca de respaldo
+OP-1099,Belleza Natural,Sticker promocional shampoo,2025-10-31,7500,Vinilo adhesivo blanco,4,T-022,8 x 8 cm,Sticker adhesivo,Troquel circular
+OP-1135,Belleza Natural,Display de mostrador crema facial,2025-12-15,1500,Carton microcorrugado,4,T-060,25 x 35 cm,Display,Requiere armado manual
+OP-1018,Tienda Max,Volante promocional apertura,2025-06-21,20000,Propalcote 150 gramos,4,Sin troquel,14 x 21 cm,Volante,Impresion tiro y retiro
+OP-1112,Tienda Max,Afiches promocionales temporada,2025-11-18,4000,Propalcote 200 gramos,4,Sin troquel,50 x 70 cm,Afiche,Material para puntos de venta
+OP-1144,Tienda Max,Sticker descuento especial,2026-01-10,15000,Vinilo adhesivo blanco,3,T-033,5 x 5 cm,Sticker adhesivo,Troquel cuadrado con puntas redondeadas
+OP-1162,Dulces La Abuela,Etiqueta frasco mermelada,2026-02-05,11000,Papel adhesivo couché,4,T-034,7 x 9 cm,Etiqueta adhesiva,Producto alimenticio con acabado brillante
