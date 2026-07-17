@@ -20,28 +20,30 @@ Escribe 'salir' para terminar.
         """
     )
 
-
     agente = AgenteOrquestador()
-
 
     while True:
 
         pregunta = input("\nUsuario: ")
 
-
         if pregunta.lower() == "salir":
             print("Finalizando agente...")
             break
 
+        try:
 
-        respuesta = agente.ejecutar(
-            pregunta
-        )
+            respuesta = agente.ejecutar(
+                pregunta
+            )
+
+            print("\nRespuesta:")
+            print(respuesta["output"])
 
 
-        print("\nRespuesta:")
-        print(respuesta["output"])
+        except Exception as error:
 
+            print("\nNo fue posible procesar la consulta.")
+            print("Detalle:", error)
 
 
 if __name__ == "__main__":

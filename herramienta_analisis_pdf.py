@@ -8,11 +8,9 @@ from my_models import GEMINI_PRIMARY
 from lector_pdf import leer_pdf
 from modelos_op import OrdenProduccion
 
-
 class HerramientaAnalisisPDF(BaseTool):
 
     name: str = "analizar_documento_pdf"
-
     description: str = """
     Analiza documentos PDF relacionados con órdenes
     de producción.
