@@ -14,7 +14,7 @@ respuesta = agente.ejecutar(
 
     Extrae los datos más importantes:
     número de OP, cliente, producto, fecha,
-    cantidad, material, tintas, troquel y dimensiones.
+    cantidad, material, tintas, troquel y dimensiones. 
     """
 )
 
