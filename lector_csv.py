@@ -70,3 +70,36 @@ def buscar_ultima_op_cliente(cliente):
     ).iloc[0]
 
     return ultima_op
+
+# Paso 18 
+
+def buscar_trabajos_similares(texto_busqueda):
+    """
+    Busca trabajos similares dentro del histórico
+    utilizando coincidencias de texto.
+    """
+
+    df = cargar_ordenes()
+
+    texto_busqueda = texto_busqueda.lower()
+
+    columnas_busqueda = [
+        "nombre_trabajo",
+        "tipo_producto",
+        "material",
+        "observaciones"
+    ]
+
+    filtro = False
+
+    for columna in columnas_busqueda:
+        filtro = filtro | (
+            df[columna]
+            .astype(str)
+            .str.lower()
+            .str.contains(texto_busqueda)
+        )
+
+    resultado = df[filtro]
+
+    return resultado
