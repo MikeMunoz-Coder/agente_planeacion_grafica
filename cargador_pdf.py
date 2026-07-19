@@ -2,7 +2,12 @@ import os
 import shutil
 
 
-CARPETA_DESTINO = "uploads/pdfs"
+#CARPETA_DESTINO = "uploads/pdfs"
+
+CARPETA_DESTINO = os.path.join(
+    "uploads",
+    "pdfs"
+)
 
 
 def validar_pdf(nombre_archivo):
