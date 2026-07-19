@@ -1,6 +1,6 @@
 # Entornos virtuales
 .venv-planeacion/
-venv/
+.venv/
 ENV/
 .env
 
@@ -8,6 +8,16 @@ ENV/
 **/__pycache__/
 *.py[cod]
 *$py.class
+
+# Archivos generados
+
+salidas/extracciones_json/*.json
+
+
+# Archivos cargados por usuarios
+
+uploads/pdfs/*
+uploads/imagenes/*
 
 # Archivos de configuración de VS Code (opcional)
 .vscode/
