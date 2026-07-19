@@ -7,7 +7,8 @@ from my_models import GEMINI_PRIMARY
 
 def responder_sobre_op(
         informacion_op,
-        pregunta
+        pregunta,
+        historial
 ):
 
 

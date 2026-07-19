@@ -3,6 +3,10 @@ import streamlit as st
 from analizador_archivo_usuario import analizar_pdf_usuario
 from herramienta_chat_op import responder_sobre_op
 
+st.set_page_config(
+    page_title="Agente Planeación Gráfica IA",
+    page_icon="📄"
+)
 
 # ------------------------------------
 # Memoria temporal de Streamlit
@@ -12,6 +16,9 @@ if "op_actual" not in st.session_state:
 
     st.session_state.op_actual = None
 
+if "historial_chat" not in st.session_state:
+
+    st.session_state.historial_chat = []
 
 
 # ------------------------------------
@@ -149,12 +156,6 @@ def mostrar_orden_produccion(datos):
 # Configuración inicial de la página
 # ------------------------------------
 
-st.set_page_config(
-    page_title="Agente Planeación Gráfica IA",
-    page_icon="📄"
-)
-
-
 
 st.title(
     "📄 Agente de Planeación Gráfica IA"
@@ -226,9 +227,6 @@ if archivo:
         # Guardar OP actual
         st.session_state.op_actual = resultado
 
-        mostrar_orden_produccion(
-            resultado
-        )
 
 # ------------------------------------
 # Chat sobre la OP cargada
@@ -241,10 +239,25 @@ st.subheader(
     "💬 Consultar sobre la Orden de Producción"
 )
 
+# Mostrar historial anterior
 
+for mensaje in st.session_state.historial_chat:
+
+    st.write(
+        "👤 Usuario:",
+        mensaje["usuario"]
+    )
+
+    st.write(
+        "🤖 IA:",
+        mensaje["asistente"]
+    )
+
+    st.divider()
+
+# Permitir nueva pregunta
 
 if st.session_state.op_actual:
-
 
     pregunta = st.text_input(
         "Escriba su pregunta:"
@@ -266,13 +279,21 @@ if st.session_state.op_actual:
 
                 respuesta = responder_sobre_op(
                     st.session_state.op_actual,
-                    pregunta
+                    pregunta,
+                    st.session_state.historial_chat
                 )
 
 
             st.write(
                 respuesta
             )
+
+            st.session_state.historial_chat.append(
+            {
+                "usuario": pregunta,
+                "asistente": respuesta
+            }
+)
 
 
         else:
