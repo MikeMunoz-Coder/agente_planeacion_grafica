@@ -1,17 +1,26 @@
 # Entornos virtuales
+
 .venv-planeacion/
 .venv/
 ENV/
+
+
+# Variables privadas
+
 .env
 
-# Caché de Python
+
+# Caché Python
+
 **/__pycache__/
 *.py[cod]
 *$py.class
 
+
 # Archivos generados
 
-salidas/extracciones_json/*.json
+salidas/**/*.json
+*.log
 
 
 # Archivos cargados por usuarios
@@ -19,5 +28,7 @@ salidas/extracciones_json/*.json
 uploads/pdfs/*
 uploads/imagenes/*
 
-# Archivos de configuración de VS Code (opcional)
+
+# Configuración VS Code
+
 .vscode/
