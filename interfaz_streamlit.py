@@ -1,7 +1,8 @@
 import streamlit as st
 
 from analizador_archivo_usuario import analizar_pdf_usuario
-from herramienta_chat_op import responder_sobre_op
+# from herramienta_chat_op import responder_sobre_op
+from agente_chat import AgenteChat
 
 st.set_page_config(
     page_title="Agente Planeación Gráfica IA",
@@ -19,6 +20,10 @@ if "op_actual" not in st.session_state:
 if "historial_chat" not in st.session_state:
 
     st.session_state.historial_chat = []
+
+if "agente_chat" not in st.session_state:
+
+    st.session_state.agente_chat = AgenteChat()
 
 
 # ------------------------------------
@@ -164,9 +169,9 @@ st.title(
 
 st.write(
     """
-Carga una Orden de Producción en PDF.
-El agente analizará el documento y recuperará
-la información del trabajo realizado.
+Puede cargar una Orden de Producción en PDF
+para analizarla o realizar consultas directamente
+sobre la información histórica disponible.
 """
 )
 
@@ -227,17 +232,17 @@ if archivo:
         # Guardar OP actual
         st.session_state.op_actual = resultado
 
-
 # ------------------------------------
-# Chat sobre la OP cargada
+# Chat general del agente
 # ------------------------------------
 
 st.divider()
 
 
 st.subheader(
-    "💬 Consultar sobre la Orden de Producción"
+    "💬 Consultar con el Agente de Planeación"
 )
+
 
 # Mostrar historial anterior
 
@@ -255,57 +260,49 @@ for mensaje in st.session_state.historial_chat:
 
     st.divider()
 
-# Permitir nueva pregunta
-
-if st.session_state.op_actual:
-
-    pregunta = st.text_input(
-        "Escriba su pregunta:"
-    )
 
 
-    if st.button(
-        "Enviar pregunta"
-    ):
+# Entrada de preguntas
+
+pregunta = st.text_input(
+    "Escriba su pregunta:"
+)
 
 
-        if pregunta:
+
+if st.button(
+    "Enviar pregunta"
+):
 
 
-            with st.spinner(
-                "Generando respuesta..."
-            ):
+    if pregunta:
 
 
-                respuesta = responder_sobre_op(
-                    st.session_state.op_actual,
-                    pregunta,
-                    st.session_state.historial_chat
-                )
+        with st.spinner(
+            "Analizando consulta..."
+        ):
 
 
-            st.write(
-                respuesta
+            respuesta = st.session_state.agente_chat.responder(
+                pregunta
             )
 
-            st.session_state.historial_chat.append(
+
+        st.write(
+            respuesta
+        )
+
+
+        st.session_state.historial_chat.append(
             {
                 "usuario": pregunta,
                 "asistente": respuesta
             }
-)
+        )
 
 
-        else:
+    else:
 
-            st.warning(
-                "Ingrese una pregunta."
-            )
-
-
-else:
-
-
-    st.info(
-        "Primero cargue y analice una Orden de Producción."
-    )
+        st.warning(
+            "Ingrese una pregunta."
+        )
