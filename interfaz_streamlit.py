@@ -1,8 +1,22 @@
 import streamlit as st
 
 from analizador_archivo_usuario import analizar_pdf_usuario
+from herramienta_chat_op import responder_sobre_op
 
 
+# ------------------------------------
+# Memoria temporal de Streamlit
+# ------------------------------------
+
+if "op_actual" not in st.session_state:
+
+    st.session_state.op_actual = None
+
+
+
+# ------------------------------------
+# Función para mostrar información OP
+# ------------------------------------
 
 def mostrar_orden_produccion(datos):
 
@@ -208,3 +222,69 @@ if archivo:
         mostrar_orden_produccion(
             resultado
         )
+
+        # Guardar OP actual
+        st.session_state.op_actual = resultado
+
+        mostrar_orden_produccion(
+            resultado
+        )
+
+# ------------------------------------
+# Chat sobre la OP cargada
+# ------------------------------------
+
+st.divider()
+
+
+st.subheader(
+    "💬 Consultar sobre la Orden de Producción"
+)
+
+
+
+if st.session_state.op_actual:
+
+
+    pregunta = st.text_input(
+        "Escriba su pregunta:"
+    )
+
+
+    if st.button(
+        "Enviar pregunta"
+    ):
+
+
+        if pregunta:
+
+
+            with st.spinner(
+                "Generando respuesta..."
+            ):
+
+
+                respuesta = responder_sobre_op(
+                    st.session_state.op_actual,
+                    pregunta
+                )
+
+
+            st.write(
+                respuesta
+            )
+
+
+        else:
+
+            st.warning(
+                "Ingrese una pregunta."
+            )
+
+
+else:
+
+
+    st.info(
+        "Primero cargue y analice una Orden de Producción."
+    )
