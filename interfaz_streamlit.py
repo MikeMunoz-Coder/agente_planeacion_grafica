@@ -1,13 +1,16 @@
 import streamlit as st
+import os
+import tempfile
 
 from analizador_archivo_usuario import analizar_pdf_usuario
-# from herramienta_chat_op import responder_sobre_op
 from agente_chat import AgenteChat
+
 
 st.set_page_config(
     page_title="Agente Planeación Gráfica IA",
     page_icon="📄"
 )
+
 
 # ------------------------------------
 # Memoria temporal de Streamlit
@@ -17,17 +20,20 @@ if "op_actual" not in st.session_state:
 
     st.session_state.op_actual = None
 
+
 if "historial_chat" not in st.session_state:
 
     st.session_state.historial_chat = []
+
 
 if "agente_chat" not in st.session_state:
 
     st.session_state.agente_chat = AgenteChat()
 
 
+
 # ------------------------------------
-# Función para mostrar información OP
+# Función mostrar información OP
 # ------------------------------------
 
 def mostrar_orden_produccion(datos):
@@ -40,7 +46,9 @@ def mostrar_orden_produccion(datos):
     col1, col2 = st.columns(2)
 
 
+
     with col1:
+
 
         st.metric(
             "Número OP",
@@ -81,7 +89,9 @@ def mostrar_orden_produccion(datos):
         )
 
 
+
     with col2:
+
 
         st.write("**Cantidad:**")
 
@@ -123,6 +133,7 @@ def mostrar_orden_produccion(datos):
         )
 
 
+
     st.divider()
 
 
@@ -158,9 +169,8 @@ def mostrar_orden_produccion(datos):
 
 
 # ------------------------------------
-# Configuración inicial de la página
+# Título aplicación
 # ------------------------------------
-
 
 st.title(
     "📄 Agente de Planeación Gráfica IA"
@@ -178,7 +188,7 @@ sobre la información histórica disponible.
 
 
 # ------------------------------------
-# Carga del archivo PDF
+# Carga archivo PDF
 # ------------------------------------
 
 archivo = st.file_uploader(
@@ -191,23 +201,9 @@ archivo = st.file_uploader(
 if archivo:
 
 
-    ruta_temporal = archivo.name
-
-
-    with open(
-        ruta_temporal,
-        "wb"
-    ) as f:
-
-        f.write(
-            archivo.getbuffer()
-        )
-
-
     st.success(
         "Archivo cargado correctamente."
     )
-
 
 
     if st.button(
@@ -216,21 +212,46 @@ if archivo:
 
 
         with st.spinner(
-            "Consultando información..."
+            "Analizando documento..."
         ):
 
 
-            resultado = analizar_pdf_usuario(
-                ruta_temporal
-            )
+            # Crear archivo temporal conservando nombre original
+
+            with tempfile.TemporaryDirectory() as carpeta_temp:
+
+
+                ruta_temporal = os.path.join(
+                    carpeta_temp,
+                    archivo.name
+                )
+
+
+                with open(
+                    ruta_temporal,
+                    "wb"
+                ) as temporal:
+
+
+                    temporal.write(
+                        archivo.getbuffer()
+                    )
+
+
+                resultado = analizar_pdf_usuario(
+                    ruta_temporal
+                )
+
 
 
         mostrar_orden_produccion(
             resultado
         )
 
-        # Guardar OP actual
+
         st.session_state.op_actual = resultado
+
+
 
 # ------------------------------------
 # Chat general del agente
@@ -244,25 +265,29 @@ st.subheader(
 )
 
 
-# Mostrar historial anterior
+
+# Mostrar historial
 
 for mensaje in st.session_state.historial_chat:
+
 
     st.write(
         "👤 Usuario:",
         mensaje["usuario"]
     )
 
+
     st.write(
         "🤖 IA:",
         mensaje["asistente"]
     )
 
+
     st.divider()
 
 
 
-# Entrada de preguntas
+# Entrada pregunta
 
 pregunta = st.text_input(
     "Escriba su pregunta:"
@@ -283,8 +308,12 @@ if st.button(
         ):
 
 
-            respuesta = st.session_state.agente_chat.responder(
-                pregunta
+            respuesta = (
+                st.session_state
+                .agente_chat
+                .responder(
+                    pregunta
+                )
             )
 
 

@@ -11,6 +11,17 @@ def leer_pdf(ruta_pdf):
     texto = ""
 
     for pagina in lector.pages:
-        texto += pagina.extract_text()
+
+
+        texto_extraido = pagina.extract_text()
+
+
+        if texto_extraido:
+
+            texto += (
+                texto_extraido
+                + "\n"
+            )
+
 
     return texto

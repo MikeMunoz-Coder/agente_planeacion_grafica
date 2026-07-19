@@ -2,9 +2,12 @@ import os
 import json
 
 
-CARPETA_SALIDA = "salidas/extracciones_json"
+# CARPETA_SALIDA = "salidas/extracciones_json"
 
-
+CARPETA_SALIDA = os.path.join(
+    "salidas",
+    "extracciones_json"
+)
 
 def guardar_json(nombre_archivo, datos):
 
@@ -17,9 +20,17 @@ def guardar_json(nombre_archivo, datos):
         os.makedirs(CARPETA_SALIDA)
 
 
-    nombre_json = nombre_archivo.replace(
-        ".pdf",
-        ".json"
+    # nombre_json = nombre_archivo.replace(
+    #     ".pdf",
+    #     ".json"
+    # )
+    
+    nombre_json = (
+        nombre_archivo.rsplit(
+            ".",
+            1
+        )[0]
+        + ".json"
     )
 
 
