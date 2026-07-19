@@ -2,12 +2,12 @@ import os
 import json
 
 
-# CARPETA_JSON = "salidas/extracciones_json"
-
 CARPETA_JSON = os.path.join(
     "salidas",
     "extracciones_json"
 )
+
+
 
 def buscar_extraccion(nombre_pdf):
 
@@ -16,10 +16,6 @@ def buscar_extraccion(nombre_pdf):
     del documento PDF.
     """
 
-    # nombre_json = nombre_pdf.replace(
-    #     ".pdf",
-    #     ".json"
-    # )
 
     nombre_json = (
         nombre_pdf.rsplit(
@@ -36,8 +32,12 @@ def buscar_extraccion(nombre_pdf):
     )
 
 
-    if not os.path.exists(ruta_json):
+    if not os.path.exists(
+        ruta_json
+    ):
+
         return None
+
 
 
     with open(
@@ -45,6 +45,7 @@ def buscar_extraccion(nombre_pdf):
         "r",
         encoding="utf-8"
     ) as archivo:
+
 
         datos = json.load(
             archivo
