@@ -122,23 +122,19 @@ agente_planeacion_grafica/
 
 python -m venv .venv
 
-
 Activar:
 
 Windows:
 
 .venv\Scripts\activate
 
-
 Linux:
 source .venv/bin/activate
-
 
 ---
 
 # 2. Instalar dependencias
 pip install -r requirements.txt
-
 
 ---
 
@@ -151,7 +147,6 @@ Crear archivo:
 GEMINI_API_KEY=tu_api_key
 COHERE_API_KEY=tu_api_key
 
-
 ---
 
 # ▶️ Ejecución
@@ -162,13 +157,11 @@ streamlit run interfaz_streamlit.py
 
 ![Interfaz principal Streamlit](capturas/1_run_interfaz_streamlit.py.jpg)
 
-
 La aplicación estará disponible en:
 
 http://localhost:8501
 
 ![La aplicación estará disponible](capturas/2_disponiblidad_localhost.jpg)
-
 
 ---
 
@@ -389,7 +382,6 @@ Deberías ver la interfaz de Streamlit lista para:
 ![Escribir consulta 3 + Historial Chat + Consulta a base de datos](capturas/d5.1_consulta3_chat_bases_datos.jpg)
 ![Consulta a base de datos](capturas/d5.2_consulta3_continuacion.jpg)
 
-
 ---
 
 12. Consejos para producción
@@ -452,8 +444,6 @@ streamlit run app.py --server.port 8501 --server.address 0.0.0.0
 - Desde el navegador de tu computador local, abre:
 
 [http://tu_ip_publica_de_VM:8501](http://tu_ip_publica_de_VM:8501)
-
-
 
 
 # Autor
