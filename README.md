@@ -155,7 +155,7 @@ Ejecutar:
 
 streamlit run interfaz_streamlit.py
 
-![Interfaz principal Streamlit](capturas/1_run_interfaz_streamlit.py.jpg)
+![Interfaz principal Streamlit](./capturas/1_run_interfaz_streamlit.py.jpg)
 
 La aplicación estará disponible en:
 
