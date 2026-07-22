@@ -198,11 +198,11 @@ Busca trabajos similares relacionados con stickers.
 
 ![Escribir consulta](capturas/4.2_consulta_disponible.jpg)
 
-![Muestra Respuesta de Consulta](capturas/4.3_consulta1_disponible.jpg)
+![Muestra Respuesta de Consulta](capturas/4.3_consulta1_disponible_respuesta.jpg)
 
-![Escribir consulta 2 y Historial Chat](capturas/4.4_consulta2_disponible.jpg)
+![Escribir consulta 2 y Historial Chat](capturas/4.4_consulta2_disponible_respuesta.jpg)
 
-![Escribir consulta 3 + Historial Chat + Consulta a base de datos](capturas/4.5_consulta3_disponible.jpg)
+![Escribir consulta 3 + Historial Chat + Consulta a base de datos](capturas/4.5_consulta3_disponible_respuesta.jpg)
 
 ---
 
@@ -374,7 +374,7 @@ Deberías ver la interfaz de Streamlit lista para:
 - Consultar al agente
 
 ![Escribir consulta](capturas/d4_consulta_disponible.jpg)
-![Escribir consulta 2 y Historial Chat](capturas/d5_consulta 2 + Historial Chat.jpg)
+![Escribir consulta 2 y Historial Chat](capturas/d5_consulta2_Historial_Chat.jpg)
 
 
 - Visualizar el historial de chat
